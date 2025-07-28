@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOREE | Harness Your Menstrual Cycle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://css.gg/css?=|spinner" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-purple': '#4A3F6D',
+                        'brand-lavender': '#E6E0F8',
+                        'brand-deep-blue': '#1D1B26',
+                        'brand-light-gray': '#F5F3F9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #E6E0F8 0%, #FFFFFF 100%);
+        }
+        .phase-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .phase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-container {
+            transition: transform 0.3s ease;
+        }
+        .gg-spinner {
+            transform: scale(var(--ggs,1));
+            box-sizing: border-box;
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+        .gg-spinner::before,
+        .gg-spinner::after {
+            box-sizing: border-box;
+            display: block;
+            width: 20px;
+            height: 20px;
+            content: "";
+            position: absolute;
+            border-radius: 100px;
+            animation: spinner 1s cubic-bezier(.6,0,.4,1) infinite;
+            border: 3px solid;
+        }
+        .gg-spinner::before {
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: #4A3F6D;
+            border-right-color: #4A3F6D;
+        }
+        .gg-spinner::after {
+            border-top-color: #E6E0F8;
+            border-bottom-color: #E6E0F8;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            animation-delay: .5s;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0) }
+            to { transform: rotate(359deg) }
+        }
+    </style>
+</head>
+<body class="bg-brand-light-gray font-sans text-brand-deep-blue">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-serif font-bold text-brand-purple">
+                    KOREE
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-brand-purple transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-purple transition-colors">About</a>
+                    <a href="#phases" class="text-gray-600 hover:text-brand-purple transition-colors">The Phases</a>
+                    <a href="#lessons" class="text-gray-600 hover:text-brand-purple transition-colors">Lessons</a>
+                    <a href="#ai-insights" class="text-gray-600 hover:text-brand-purple transition-colors">AI Insights</a>
+                    <a href="#app" class="bg-brand-purple text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition-all">Get the App</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-brand-purple">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#home" class="block px-6 py-3 text-gray-600 hover:bg-brand-lavender">Home</a>
+            <a href="#about" class="block px-6 py-3 text-gray-600 hover:bg-brand-lavender">About</a>
+            <a href="#phases" class="block px-6 py-3 text-gray-600 hover:bg-brand-lavender">The Phases</a>
+            <a href="#lessons" class="block px-6 py-3 text-gray-600 hover:bg-brand-lavender">Lessons</a>
+            <a href="#ai-insights" class="block px-6 py-3 text-gray-600 hover:bg-brand-lavender">AI Insights</a>
+            <a href="#app" class="block px-6 py-3 text-gray-600 hover:bg-brand-lavender">Get the App</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="gradient-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-brand-purple mb-4">Harness Your Menstrual Cycle</h1>
+                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+                    Discover the power within your natural rhythm. KOREE helps you understand the phases of your cycle to unlock your potential for growth, creativity, and self-awareness through moon-aligned wisdom.
+                </p>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <a href="#lessons" class="bg-brand-purple text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all text-lg font-semibold">
+                        Start Learning
+                    </a>
+                    <a href="#phases" class="border-2 border-brand-purple text-brand-purple px-8 py-4 rounded-full hover:bg-brand-purple hover:text-white transition-all text-lg font-semibold">
+                        Explore Phases
+                    </a>
+                </div>
+                <!-- Moon Phases Visual -->
+                <div class="flex justify-center space-x-4 mt-8">
+                    <div class="text-4xl animate-pulse">🌑</div>
+                    <div class="text-4xl animate-pulse" style="animation-delay: 0.5s;">🌒</div>
+                    <div class="text-4xl animate-pulse" style="animation-delay: 1s;">🌕</div>
+                    <div class="text-4xl animate-pulse" style="animation-delay: 1.5s;">🌖</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Brand Mission Section -->
+        <section id="about" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-purple">Our Mission</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">The KOREE program aims to empower young girls with tools and strategies for life, using their menstrual cycle as a framework for understanding their cyclical nature.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-white rounded-lg shadow-md">
+                            <h3 class="font-bold text-xl text-brand-purple mb-2">🌸 Inform & Empower</h3>
+                            <p class="text-gray-700">Inform young women about the biology of the menstrual cycle and provide practical skills for managing menstrual health while dispelling myths and misinformation.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow-md">
+                            <h3 class="font-bold text-xl text-brand-purple mb-2">🌙 Track & Plan</h3>
+                            <p class="text-gray-700">Connect your cycle to lunar phases without requiring personal data input. Understand your body's natural rhythm through universal moon tracking.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow-md">
+                            <h3 class="font-bold text-xl text-brand-purple mb-2">✨ Educate for the Future</h3>
+                            <p class="text-gray-700">Educate about puberty, fertility, and reproductive health, empowering informed decisions and reducing risks through knowledge.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-brand-lavender to-white rounded-full p-8 mx-auto w-64 h-64 md:w-96 md:h-96 flex items-center justify-center shadow-2xl">
+                            <div class="text-center">
+                                <div class="text-6xl mb-4">🌸</div>
+                                <h3 class="text-2xl font-serif font-bold text-brand-purple">KOREE</h3>
+                                <p class="text-brand-purple/70">Your Cycle Companion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Four Phases Section -->
+        <section id="phases" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-purple">The Four Phases of Your Cycle</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Each phase offers unique strengths and insights. Learn to listen to your body and flow with its natural energy, synchronized with the moon's rhythm.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="phase-card bg-slate-100 p-8 rounded-xl shadow-lg border border-slate-200 cursor-pointer" onclick="window.location.href='lesson1.html'">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🌑</div>
+                            <h3 class="text-2xl font-serif font-bold text-gray-700 mb-2">Menstrual</h3>
+                            <p class="text-sm text-gray-500 mb-4">New Moon Phase</p>
+                        </div>
+                        <p class="text-gray-700 mb-4">Time for rest, reflection, and intuition. Your body releases what is no longer needed. Connect with inner wisdom and set intentions.</p>
+                        <div class="mt-4 pt-4 border-t border-gray-300">
+                            <p class="font-semibold text-gray-700">Key Practice:</p>
+                            <p class="text-gray-600 italic">Supta Baddha Konasana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="phase-card bg-green-50 p-8 rounded-xl shadow-lg border border-green-200 cursor-pointer" onclick="window.location.href='lesson2.html'">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🌒</div>
+                            <h3 class="text-2xl font-serif font-bold text-green-700 mb-2">Post-Menstrual</h3>
+                            <p class="text-sm text-green-500 mb-4">Waxing Crescent</p>
+                        </div>
+                        <p class="text-gray-700 mb-4">Energy and curiosity rise. Time to produce, create, and look outward. Perfect for planning and trying new things with renewed clarity.</p>
+                        <div class="mt-4 pt-4 border-t border-green-300">
+                            <p class="font-semibold text-green-700">Key Practice:</p>
+                            <p class="text-green-600 italic">Seated Twist (Boundaries)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="phase-card bg-yellow-50 p-8 rounded-xl shadow-lg border border-yellow-200 cursor-pointer" onclick="window.location.href='lesson3.html'">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🌕</div>
+                            <h3 class="text-2xl font-serif font-bold text-yellow-700 mb-2">Ovulatory</h3>
+                            <p class="text-sm text-yellow-500 mb-4">Full Moon Phase</p>
+                        </div>
+                        <p class="text-gray-700 mb-4">Peak energy and confidence. Stronger desire to socialize and connect. Most generous phase - perfect for collaboration and sharing.</p>
+                        <div class="mt-4 pt-4 border-t border-yellow-300">
+                            <p class="font-semibold text-yellow-700">Key Practice:</p>
+                            <p class="text-yellow-600 italic">Bridge Pose (Confidence)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="phase-card bg-purple-50 p-8 rounded-xl shadow-lg border border-purple-200 cursor-pointer" onclick="window.location.href='lesson4.html'">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🌖</div>
+                            <h3 class="text-2xl font-serif font-bold text-purple-700 mb-2">Pre-Menstrual</h3>
+                            <p class="text-sm text-purple-500 mb-4">Waning Moon</p>
+                        </div>
+                        <p class="text-gray-700 mb-4">Emotionally intense time that reveals what truly matters. Increased sensitivity highlights core values - a powerful guide if listened to constructively.</p>
+                        <div class="mt-4 pt-4 border-t border-purple-300">
+                            <p class="font-semibold text-purple-700">Key Practice:</p>
+                            <p class="text-purple-600 italic">Creative Expression & Dance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Overview Section -->
+        <section id="lessons" class="py-20 md:py-28 bg-gradient-to-br from-brand-lavender/20 to-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-purple">Interactive Learning Journey</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Dive deep into each phase with comprehensive lessons featuring yoga practices, biological insights, and empowering activities.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="text-3xl mr-4">🌑</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-purple">Lesson 1: Setting the Scene</h3>
+                                <p class="text-gray-500">Menstrual Phase (New Moon)</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Learn to use your cycle as a tool for self-awareness. Master the Supta Baddha Konasana pose for managing challenges during menstruation.</p>
+                        <a href="lesson1.html" class="inline-flex items-center text-brand-purple hover:text-brand-purple/80 font-semibold">
+                            Start Lesson 1 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="text-3xl mr-4">🌒</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-purple">Lesson 2: Listening to Your Body</h3>
+                                <p class="text-gray-500">Post-Menstrual Phase (Waxing Crescent)</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Interpret physical and emotional signals. Learn healthy boundaries through the Seated Twist pose and body awareness practices.</p>
+                        <a href="lesson2.html" class="inline-flex items-center text-brand-purple hover:text-brand-purple/80 font-semibold">
+                            Start Lesson 2 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="text-3xl mr-4">🌕</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-purple">Lesson 3: Building Confidence</h3>
+                                <p class="text-gray-500">Ovulatory Phase (Full Moon)</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Harness peak energy for confidence and performance. Master the Bridge Pose and learn to trust your inner voice.</p>
+                        <a href="lesson3.html" class="inline-flex items-center text-brand-purple hover:text-brand-purple/80 font-semibold">
+                            Start Lesson 3 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="text-3xl mr-4">🌖</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-purple">Lesson 4: Creative Expression</h3>
+                                <p class="text-gray-500">Pre-Menstrual Phase (Waning Moon)</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">View emotions as gifts and express creativity through movement. Learn to honor your emotional wisdom through dance and journaling.</p>
+                        <a href="lesson4.html" class="inline-flex items-center text-brand-purple hover:text-brand-purple/80 font-semibold">
+                            Start Lesson 4 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Insights Section -->
+        <section id="ai-insights" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-purple">✨ Personalized Cycle Insights</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Get AI-powered affirmations and suggestions tailored to your current cycle phase and feelings.</p>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <div class="mb-6">
+                        <label for="feelings-input" class="block text-lg font-medium text-brand-purple mb-2">How are you feeling today?</label>
+                        <textarea id="feelings-input" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple focus:border-transparent transition" placeholder="e.g., tired, creative, anxious, energetic, emotional..."></textarea>
+                    </div>
+                    <div class="mb-6">
+                         <p class="block text-lg font-medium text-brand-purple mb-3">Which phase are you in?</p>
+                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <button class="phase-selector-btn w-full p-3 rounded-lg bg-slate-100 hover:bg-slate-600 hover:text-white transition" data-phase="Menstrual">🌑 Menstrual</button>
+                            <button class="phase-selector-btn w-full p-3 rounded-lg bg-green-100 hover:bg-green-600 hover:text-white transition" data-phase="Post-Menstrual">🌒 Post-Menstrual</button>
+                            <button class="phase-selector-btn w-full p-3 rounded-lg bg-yellow-100 hover:bg-yellow-600 hover:text-white transition" data-phase="Ovulatory">🌕 Ovulatory</button>
+                            <button class="phase-selector-btn w-full p-3 rounded-lg bg-purple-100 hover:bg-purple-600 hover:text-white transition" data-phase="Pre-Menstrual">🌖 Pre-Menstrual</button>
+                        </div>
+                    </div>
+                    <div id="ai-result" class="mt-6 p-6 bg-brand-light-gray rounded-lg min-h-[100px] flex items-center justify-center text-gray-500 italic hidden">
+                        Your personalized insight will appear here...
+                    </div>
+                    <div id="ai-loading" class="mt-6 flex justify-center items-center hidden">
+                        <div class="gg-spinner"></div>
+                        <span class="ml-4 text-brand-purple">Generating your insight...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App CTA Section -->
+        <section id="app" class="gradient-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-purple mb-4">Ready to Begin Your Journey?</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
+                    Download the KOREE Moon App to start tracking your cycle through lunar phases, receive personalized insights, and connect with a supportive community.
+                </p>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <a href="#" class="bg-black text-white px-6 py-3 rounded-lg flex items-center space-x-2 hover:bg-gray-800 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.17 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/></svg>
+                        <span>App Store</span>
+                    </a>
+                    <a href="#" class="bg-black text-white px-6 py-3 rounded-lg flex items-center space-x-2 hover:bg-gray-800 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+                <p class="text-gray-600">
+                    🌙 Track your cycle with lunar phases • ✨ Get personalized insights • 🧘‍♀️ Learn yoga practices • 📱 Offline functionality
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-deep-blue text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <p class="text-2xl font-serif font-bold mb-4">KOREE</p>
+                    <p class="text-brand-lavender/70">Empowering young women through cycle awareness and lunar wisdom.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Learn</h4>
+                    <ul class="space-y-2 text-brand-lavender/70">
+                        <li><a href="lesson1.html" class="hover:text-white transition">Menstrual Phase</a></li>
+                        <li><a href="lesson2.html" class="hover:text-white transition">Post-Menstrual Phase</a></li>
+                        <li><a href="lesson3.html" class="hover:text-white transition">Ovulatory Phase</a></li>
+                        <li><a href="lesson4.html" class="hover:text-white transition">Pre-Menstrual Phase</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Features</h4>
+                    <ul class="space-y-2 text-brand-lavender/70">
+                        <li>Lunar Phase Tracking</li>
+                        <li>AI-Powered Insights</li>
+                        <li>Yoga Practices</li>
+                        <li>Offline Functionality</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-brand-lavender/70">
+                        <li>support@koree.app</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                        <li>Community Guidelines</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-brand-lavender/20 mt-8 pt-8 text-center">
+                <p class="text-brand-lavender/70">&copy; 2025 KOREE. All rights reserved. Empowerment through understanding.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="modal-container bg-white w-full max-w-md p-6 rounded-lg shadow-lg text-center transform scale-95">
+            <h3 class="text-xl font-bold text-red-600 mb-4">Oops!</h3>
+            <p id="error-message" class="text-gray-700 mb-6">Something went wrong. Please try again later.</p>
+            <button id="close-modal-btn" class="bg-brand-purple text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        }
+
+        // AI Insights Feature (Simplified for demo)
+        const feelingsInput = document.getElementById('feelings-input');
+        const phaseSelectorBtns = document.querySelectorAll('.phase-selector-btn');
+        const aiResultDiv = document.getElementById('ai-result');
+        const aiLoadingDiv = document.getElementById('ai-loading');
+        
+        const errorModal = document.getElementById('error-modal');
+        const errorMessage = document.getElementById('error-message');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        function showErrorModal(message = "Something went wrong. Please try again later.") {
+            errorMessage.textContent = message;
+            errorModal.classList.remove('hidden');
+        }
+
+        function hideErrorModal() {
+            errorModal.classList.add('hidden');
+        }
+        
+        closeModalBtn.addEventListener('click', hideErrorModal);
+        errorModal.addEventListener('click', (e) => {
+            if (e.target === errorModal) hideErrorModal();
+        });
+
+        // Simplified AI Response (since no API key provided)
+        const phaseInsights = {
+            'Menstrual': {
+                tired: "**Affirmation:** Rest is your superpower right now. Your body is doing important renewal work.\n**Activity:** Try the Supta Baddha Konasana pose for 10 minutes with deep breathing.",
+                emotional: "**Affirmation:** Your emotions are messengers - listen to their wisdom during this reflective time.\n**Activity:** Journal about what you need to release and what you want to welcome in.",
+                cramping: "**Affirmation:** Your body knows how to heal. You have the strength to move through this.\n**Activity:** Use a heating pad and practice gentle hip circles and forward folds."
+            },
+            'Post-Menstrual': {
+                energetic: "**Affirmation:** Your energy is returning like the waxing moon - use it wisely to plant new seeds.\n**Activity:** Try something new today - a creative project, skill, or plan you've been considering.",
+                curious: "**Affirmation:** Your curiosity is your compass. Trust it to guide you toward growth.\n**Activity:** Explore a new area of interest or set healthy boundaries around what serves you.",
+                motivated: "**Affirmation:** This is your time to begin. Your clarity and focus are at their peak.\n**Activity:** Practice the Seated Twist to find your center and make important decisions."
+            },
+            'Ovulatory': {
+                confident: "**Affirmation:** You are radiant and powerful. This is your time to shine and share your gifts.\n**Activity:** Take on a challenge that requires confidence - give a presentation or try the Bridge Pose.",
+                social: "**Affirmation:** Your natural magnetism draws people to you. Share your light generously.\n**Activity:** Plan social activities or collaborate on projects. Your communication skills are peak right now.",
+                creative: "**Affirmation:** Your creative energy is at its highest. Trust your artistic instincts.\n**Activity:** Channel your peak energy into creative expression - write, paint, dance, or brainstorm ideas."
+            },
+            'Pre-Menstrual': {
+                irritated: "**Affirmation:** Your irritation points to what needs attention. Your emotions are wise teachers.\n**Activity:** Try freeform dance to move this energy, or journal about what boundaries need setting.",
+                sensitive: "**Affirmation:** Your sensitivity is a gift that connects you to deeper truths about yourself.\n**Activity:** Practice gentle self-compassion and express your feelings through creative movement.",
+                intense: "**Affirmation:** Your intensity reveals what truly matters to you. Honor these important messages.\n**Activity:** Channel this powerful energy into artistic expression or meaningful conversations."
+            }
+        };
+
+        phaseSelectorBtns.forEach(button => {
+            button.addEventListener('click', async () => {
+                const phase = button.dataset.phase;
+                const feelings = feelingsInput.value.trim().toLowerCase();
+
+                if (!feelings) {
+                    showErrorModal("Please tell us how you're feeling first.");
+                    return;
+                }
+
+                aiResultDiv.classList.add('hidden');
+                aiLoadingDiv.classList.remove('hidden');
+                
+                phaseSelectorBtns.forEach(btn => btn.disabled = true);
+
+                // Simulate API delay
+                setTimeout(() => {
+                    let insight = "**Affirmation:** You are exactly where you need to be in your cycle. Trust your body's wisdom.\n**Activity:** Take some time for gentle self-care and reflection.";
+                    
+                    // Find matching insight based on feelings
+                    const phaseData = phaseInsights[phase];
+                    if (phaseData) {
+                        for (const [keyword, response] of Object.entries(phaseData)) {
+                            if (feelings.includes(keyword)) {
+                                insight = response;
+                                break;
+                            }
+                        }
+                    }
+
+                    const formattedText = insight
+                        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-brand-purple">$1</strong>')
+                        .replace(/\n/g, '<br>');
+
+                    aiResultDiv.innerHTML = `<div class="text-left">${formattedText}</div>`;
+                    aiResultDiv.classList.remove('hidden', 'italic', 'text-gray-500');
+                    aiLoadingDiv.classList.add('hidden');
+                    phaseSelectorBtns.forEach(btn => btn.disabled = false);
+                }, 2000);
+            });
+        });
+    </script>
+
+</body>
+</html>

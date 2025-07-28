@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Setting the Scene | KOREE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-purple': '#4A3F6D',
+                        'brand-lavender': '#E6E0F8',
+                        'brand-deep-blue': '#1D1B26',
+                        'brand-light-gray': '#F5F3F9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #E6E0F8 0%, #FFFFFF 100%); }
+    </style>
+</head>
+<body class="bg-brand-light-gray font-sans text-brand-deep-blue">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-serif font-bold text-brand-purple">KOREE</a>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600">Lesson 1 of 4</span>
+                    <a href="index.html" class="text-brand-purple hover:text-brand-purple/80 transition">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="gradient-bg py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <div class="mb-6">
+                    <div class="text-6xl mb-4">🌑</div>
+                    <div class="inline-block bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        Menstrual Phase • New Moon
+                    </div>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-purple mb-6">
+                    Lesson 1: Setting the Scene & Managing Challenges
+                </h1>
+                <p class="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
+                    Learn to use the menstrual cycle as a tool for self-awareness and resilience. Discover the power of rest during your menstrual phase.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="scrollToSection('objectives')" class="bg-brand-purple text-white px-6 py-3 rounded-full hover:bg-brand-purple/90 transition">
+                        Start Learning
+                    </button>
+                    <button onclick="scrollToSection('yoga-practice')" class="border-2 border-brand-purple text-brand-purple px-6 py-3 rounded-full hover:bg-brand-purple hover:text-white transition">
+                        Jump to Yoga
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Objectives -->
+        <section id="objectives" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-serif font-bold text-brand-purple mb-8 text-center">Learning Objectives</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center p-6">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <h3 class="font-bold text-lg text-brand-purple mb-2">Understand Your Cycle</h3>
+                            <p class="text-gray-700">Learn the four phases of the menstrual cycle and their biological significance as tools for self-awareness.</p>
+                        </div>
+                        <div class="text-center p-6">
+                            <div class="text-4xl mb-4">💪</div>
+                            <h3 class="font-bold text-lg text-brand-purple mb-2">Build Resilience</h3>
+                            <p class="text-gray-700">Develop skills to manage challenges during menstruation with confidence and self-compassion.</p>
+                        </div>
+                        <div class="text-center p-6">
+                            <div class="text-4xl mb-4">🌙</div>
+                            <h3 class="font-bold text-lg text-brand-purple mb-2">Connect with Nature</h3>
+                            <p class="text-gray-700">Understand how your menstrual phase aligns with the new moon's energy of rest and renewal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biology Focus -->
+        <section class="py-16 bg-brand-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-serif font-bold text-brand-purple mb-8 text-center">Biology Focus: The Four Phases</h2>
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-3">🌑</div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-700">Menstrual Phase (Days 1-5)</h3>
+                                        <p class="text-gray-600 text-sm">Uterine lining sheds, may involve cramps and fatigue</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-3">🌒</div>
+                                    <div>
+                                        <h3 class="font-bold text-green-700">Post-Menstrual Phase (Days 6-12)</h3>
+                                        <p class="text-gray-600 text-sm">Body re-energizes, estrogen begins to rise</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-3">🌕</div>
+                                    <div>
+                                        <h3 class="font-bold text-yellow-700">Ovulatory Phase (Days 13-17)</h3>
+                                        <p class="text-gray-600 text-sm">Estrogen peaks, body prepares for ovulation</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-3">🌖</div>
+                                    <div>
+                                        <h3 class="font-bold text-purple-700">Pre-Menstrual Phase (Days 18-28)</h3>
+                                        <p class="text-gray-600 text-sm">Progesterone dominates, preparing for next menstruation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 p-6 bg-brand-lavender/30 rounded-lg">
+                            <h3 class="font-bold text-brand-purple mb-3">What "Harness" Means</h3>
+                            <p class="text-gray-700">To harness means to use something well because you understand it. The "Harness Your Menstrual Cycle" approach empowers you with tools and strategies for leading a calm life by combining physical exercise and biological knowledge of your cycle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Content -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-serif font-bold text-brand-purple mb-8 text-center">Understanding Your Menstrual Cycle</h2>
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 rounded-xl p-8">
+                            <h3 class="text-xl font-bold text-brand-purple mb-4">🌸 A Reason for Pride</h3>
+                            <p class="text-gray-700 mb-4">
+                                The menstrual cycle is a circular, repeating journey with 4 distinct phases (Menstrual, Post-menstrual, Ovulatory, Pre-menstrual). The start of menstruation should make young women proud – it shows that their bodies are working well.
+                            </p>
+                            <p class="text-gray-700">
+                                Without the female menstrual cycle, there would be no human life on earth. From the start of their first period until they reach menopause (unless pregnant or using birth control), women are always somewhere within their menstrual cycle.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl p-8">
+                            <h3 class="text-xl font-bold text-brand-purple mb-4">🔄 Monthly Self-Discovery</h3>
+                            <p class="text-gray-700">
+                                The menstrual cycle gives girls and women the opportunity to get to know their body better every month. Everyone experiences their menstrual cycle uniquely. When you know how your body reacts at different times of your cycle, you'll know what is normal for you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yoga Practice Section -->
+        <section id="yoga-practice" class="py-16 bg-gradient-to-br from-slate-50 to-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <div class="text-5xl mb-4">🧘‍♀️</div>
+                        <h2 class="text-3xl font-serif font-bold text-brand-purple mb-4">
+                            Yoga Practice: Supta Baddha Konasana
+                        </h2>
+                        <p class="text-xl text-gray-700">Reclining Bound Angle Pose for Managing Challenges</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-gradient-to-r from-slate-500 to-slate-600 text-white p-8">
+                            <h3 class="text-2xl font-bold mb-4">Purpose: Managing Challenge During Menstruation</h3>
+                            <p class="text-slate-100 mb-4">
+                                Menstruation can be a challenging time. Physically, it can be scary to experience pain or discomfort. Mentally, it can be disorienting to feel scattered. Emotionally, it can be confusing to feel very sensitive.
+                            </p>
+                            <p class="text-slate-100">
+                                Learning to take care of your body and mind during difficult situations is an essential skill in life. This pose teaches you to "become friends" with challenging situations.
+                            </p>
+                        </div>
+                        
+                        <div class="p-8">
+                            <h4 class="text-xl font-bold text-brand-purple mb-6">Step-by-Step Instructions</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">1</div>
+                                    <p class="text-gray-700">Lie on your back with a blanket or cushion underneath you/your head. You can also do this on your bed.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">2</div>
+                                    <p class="text-gray-700">Bring the soles of your feet together so that your knees fall out to the side.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">3</div>
+                                    <p class="text-gray-700">Let your head and arms lie naturally.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">4</div>
+                                    <p class="text-gray-700">Try to relax as many muscles as possible and let your knees gently pull away.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">5</div>
+                                    <p class="text-gray-700">Allow your belly to take up lots of space. Press the soles of your feet together if you like.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">6</div>
+                                    <p class="text-gray-700">Take long, deep breaths. Breathe in through your nose to fill your chest and belly. Breathe out through your nose (or mouth if difficult).</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">7</div>
+                                    <p class="text-gray-700">Close your eyes. Stay in the pose for several long breaths until you feel soothed. You can stay here for 10-15 minutes if needed.</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 mt-1">8</div>
+                                    <p class="text-gray-700">To exit: gently push your knees together, bring them to your chest, roll to one side, and slowly sit up.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-6 bg-brand-lavender/30 rounded-lg">
+                                <h4 class="font-bold text-brand-purple mb-3">💫 What This Practice Gives You</h4>
+                                <p class="text-gray-700">
+                                    When you practice this pose, you're learning to take time just to care for your body. You're being mindful of what's happening inside you, using your breath to soothe discomfort, and showing your body that you're capable of moving through challenges with grace.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empowerment Messages -->
+        <section class="py-16 bg-gradient-to-r from-brand-purple to-brand-deep-blue text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-serif font-bold mb-8">Empowering Affirmations</h2>
+                    <div class="space-y-6">
+                        <blockquote class="text-xl italic border-l-4 border-white/50 pl-6">
+                            "Rest is powerful—it prepares you for growth."
+                        </blockquote>
+                        <blockquote class="text-xl italic border-l-4 border-white/50 pl-6">
+                            "Understanding your cycle is the first step to understanding yourself."
+                        </blockquote>
+                        <blockquote class="text-xl italic border-l-4 border-white/50 pl-6">
+                            "Your body is a wise teacher—listen to its signals."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistant Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-8">
+                        <div class="text-4xl mb-4">🤖</div>
+                        <h2 class="text-3xl font-serif font-bold text-brand-purple">AI Learning Assistant</h2>
+                        <p class="text-gray-600 mt-2">Have questions about this lesson? I'm here to help!</p>
+                    </div>
+                    
+                    <div class="bg-brand-light-gray rounded-xl p-8">
+                        <div id="chat-container" class="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="text-gray-700">
+                                    <strong>AI Assistant:</strong> Hello! I'm here to help you understand the menstrual phase and Lesson 1 concepts. I can answer questions about the yoga pose, menstrual biology, or how to manage challenges during this phase. What would you like to know?
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <input type="text" id="user-input" placeholder="Ask me about this lesson..." 
+                                   class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple focus:border-transparent"
+                                   onkeypress="handleKeyPress(event)">
+                            <button onclick="sendMessage()" 
+                                    class="bg-brand-purple text-white px-6 py-3 rounded-lg hover:bg-brand-purple/90 transition">
+                                Send
+                            </button>
+                        </div>
+
+                        <!-- Quick Questions -->
+                        <div class="mt-6">
+                            <p class="text-sm text-gray-600 mb-3">Quick questions to get started:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="askQuestion('How do I know if I\'m doing the yoga pose correctly?')" 
+                                        class="text-sm bg-white hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-full border transition">
+                                    Yoga pose guidance
+                                </button>
+                                <button onclick="askQuestion('Why is rest important during menstruation?')" 
+                                        class="text-sm bg-white hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-full border transition">
+                                    About rest
+                                </button>
+                                <button onclick="askQuestion('What if I have severe cramps?')" 
+                                        class="text-sm bg-white hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-full border transition">
+                                    Managing pain
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson Navigation -->
+        <section class="py-16 bg-brand-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-between items-center">
+                        <a href="index.html" class="flex items-center text-brand-purple hover:text-brand-purple/80 transition">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                            </svg>
+                            Back to Overview
+                        </a>
+                        <div class="text-center">
+                            <p class="text-gray-600 text-sm">Lesson 1 of 4</p>
+                            <div class="flex space-x-2 mt-2">
+                                <div class="w-3 h-3 bg-brand-purple rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                            </div>
+                        </div>
+                        <a href="lesson2.html" class="flex items-center text-brand-purple hover:text-brand-purple/80 transition">
+                            Next Lesson
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function askQuestion(question) {
+            document.getElementById('user-input').value = question;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const chatContainer = document.getElementById('chat-container');
+            const message = userInput.value.trim();
+
+            if (message === '') return;
+
+            // Add user message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'bg-brand-purple text-white p-4 rounded-lg shadow ml-8';
+            userDiv.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
+            chatContainer.appendChild(userDiv);
+
+            // Clear input
+            userInput.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'bg-white p-4 rounded-lg shadow';
+                aiDiv.innerHTML = `<p class="text-gray-700"><strong>AI Assistant:</strong> ${generateResponse(message)}</p>`;
+                chatContainer.appendChild(aiDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1000);
+
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function generateResponse(message) {
+            const msg = message.toLowerCase();
+
+            if (msg.includes('yoga') || msg.includes('pose') || msg.includes('supta baddha konasana')) {
+                return 'The Supta Baddha Konasana (Reclining Bound Angle Pose) is perfect for the menstrual phase. Focus on relaxing into the pose rather than forcing it. If your knees don\'t touch the ground, that\'s completely normal - place pillows under them for support. The key is to breathe deeply and allow your body to rest.';
+            }
+
+            if (msg.includes('rest') || msg.includes('tired') || msg.includes('why rest')) {
+                return 'Rest during menstruation is not laziness - it\'s essential self-care! Your body is doing important work during this time, shedding the uterine lining and preparing for a new cycle. Honoring your need for rest helps you build resilience and shows your body you can navigate challenges with wisdom.';
+            }
+
+            if (msg.includes('pain') || msg.includes('cramp') || msg.includes('hurt')) {
+                return 'Menstrual discomfort is very common. The Supta Baddha Konasana pose can help by gently opening the hips and encouraging relaxation. Also try: warm heat packs, gentle belly breathing, staying hydrated, and moving slowly. If pain is severe, please consult a healthcare provider.';
+            }
+
+            if (msg.includes('new moon') || msg.includes('moon')) {
+                return 'The New Moon represents new beginnings and introspection. Just like the moon is "resting" and not visible, your menstrual phase is your time to turn inward, rest, and prepare for the next cycle. This connection helps you understand that rest is a natural, powerful part of life\'s rhythm.';
+            }
+
+            if (msg.includes('emotion') || msg.includes('feel') || msg.includes('sensitive')) {
+                return 'Feeling more emotional during menstruation is completely normal due to hormone changes. Your emotions during this time often carry important messages about what you need. Try journaling about your feelings or practicing the reclining pose while acknowledging whatever emotions arise without judgment.';
+            }
+
+            return 'That\'s a great question! The menstrual phase is all about honoring your body\'s need for rest and introspection. Remember that this phase, like the new moon, is essential for renewal and growth. Is there a specific aspect of Lesson 1 you\'d like to explore further?';
+        }
+    </script>
+
+</body>
+</html>
