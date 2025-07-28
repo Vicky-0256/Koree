@@ -73,5 +73,3 @@ This educational content is provided for informational purposes. Please consult 
 ---
 
 **Empowering individuals through cycle awareness and self-understanding** 🌸
-
-*Generated with Claude Code - AI-powered development assistance*
